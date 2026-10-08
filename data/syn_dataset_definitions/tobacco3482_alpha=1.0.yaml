@@ -1,0 +1,60 @@
+name: "tobacco3482_alpha=1.0"
+task: "CLASSIFICATION"
+dataloader_model_task_as:
+base_dataset_name: "tobacco3482"
+documents_count: 5500
+valid_labels: 
+  - ADVERTISEMENT
+  - EMAIL
+  - FORM
+  - LETTER
+  - MEMO
+  - NEWS_ARTICLE
+  - NOTE
+  - REPORT
+  - RESUME
+  - SCIENTIFIC
+label_mapping: 
+  ADVERTISEMENT: ADVE
+  EMAIL: Email
+  FORM: Form
+  LETTER: Letter
+  MEMO: Memo
+  NEWS_ARTICLE: News
+  NOTE: Note
+  REPORT: Report
+  RESUME: Resume
+  SCIENTIFIC: Scientific
+ 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "legal and corporate"
+  language: "English"
+  gt_type: |
+    document class labels:
+      * ADVERTISEMENT: Advertisement
+      * EMAIL: Email
+      * FORM: Form
+      * LETTER: Letter
+      * MEMO: Memo
+      * NEWS_ARTICLE: News article
+      * NOTE: Note/handwritten note
+      * REPORT: Report
+      * RESUME: Resume/CV
+      * SCIENTIFIC: Scientific publication
+  gt_format: 'JSON object {"label": "<class label>"}'
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1
+
+# ICVPR: start | 38.61 USD
+# ICVPR: end   | 50.37 USD
+#   936 samples @ 11.76 USD => 1.25 ct/doc

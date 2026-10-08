@@ -1,0 +1,173 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "docdjinn"
+version = "0.1.0"
+description = "Synthetic document generation and analysis"
+readme = "README.md"
+requires-python = "==3.11.12"
+dependencies = [
+    "aiohappyeyeballs==2.6.1",
+    "aiohttp==3.12.15",
+    "aiosignal==1.4.0",
+    "annotated-types==0.7.0",
+    "anthropic==0.64.0",
+    "anyio==4.10.0",
+    "attrs==25.3.0",
+    "beautifulsoup4==4.13.4",
+    "certifi==2025.8.3",
+    "charset-normalizer==3.4.3",
+    "click==8.2.1",
+    "cssutils==2.11.1",
+    "datasets==4.0.0",
+    "dill==0.3.8",
+    "distro==1.9.0",
+    "filelock==3.19.1",
+    "frozenlist==1.7.0",
+    "fsspec==2025.3.0",
+    "gitdb==4.0.12",
+    "gitpython==3.1.45",
+    "h11==0.16.0",
+    "hf-xet==1.1.8",
+    "httpcore==1.0.9",
+    "httpx==0.28.1",
+    "huggingface-hub==0.34.4",
+    "idna==3.10",
+    "jinja2==3.1.6",
+    "jiter==0.10.0",
+    "jsonlines==4.0.0",
+    "levenshtein==0.27.1",
+    "markdown-it-py==4.0.0",
+    "markupsafe==3.0.2",
+    "mdurl==0.1.2",
+    "more-itertools==10.7.0",
+    "mpmath==1.3.0",
+    "multidict==6.6.4",
+    "multiprocess==0.70.16",
+    "networkx==3.5",
+    "numpy==1.26.4",
+    "packaging==25.0",
+    "pandas==2.3.1",
+    "pdf2image==1.17.0",
+    "pillow==11.3.0",
+    "platformdirs==4.3.8",
+    "propcache==0.3.2",
+    "protobuf==6.32.0",
+    "pyarrow==21.0.0",
+    "pydantic==2.11.7",
+    "pydantic-core==2.33.2",
+    "pygments==2.19.2",
+    "pymupdf==1.26.3",
+    "pypdf2==3.0.1",
+    "python-dateutil==2.9.0.post0",
+    "pytz==2025.2",
+    "pyyaml==6.0.2",
+    "rapidfuzz==3.13.0",
+    "regex==2025.7.34",
+    "requests==2.32.5",
+    "rich==14.1.0",
+    "safetensors==0.6.2",
+    "sentry-sdk==2.35.0",
+    "setuptools==78.1.1",
+    "six==1.17.0",
+    "smmap==5.0.2",
+    "sniffio==1.3.1",
+    "soupsieve==2.7",
+    "sympy==1.13.1",
+    "tokenizers==0.21.4",
+    "tqdm==4.67.1",
+    "transformers==4.49",
+    "triton==2.1.0",
+    "typing-extensions==4.14.1",
+    "typing-inspection==0.4.1",
+    "tzdata==2025.2",
+    "urllib3==2.5.0",
+    "wandb==0.21.1",
+    "wheel==0.45.1",
+    "xxhash==3.5.0",
+    "yarl==1.20.1",
+    "torch==2.1.0",
+    "torchvision",
+    "atria-core",
+    "datadings>=3.4.7",
+    "pytorch-ignite>=0.5.2",
+    "scikit-learn>=1.7.2",
+    "fire>=0.7.1",
+    "tensorboardx>=2.6.4",
+    "torchinfo>=1.8.0",
+    "hydra-core>=1.3.2",
+    "umap-learn==0.5.9.post2",
+    "hdbscan>=0.8.40",
+    "h5py>=3.14.0",
+    "colorlog>=6.9.0",
+    "dash>=3.2.0",
+    "flask>=3.1.2",
+    "plotly>=6.3.1",
+    "dash-bootstrap-components>=2.0.4",
+    "matplotlib>=3.10.6",
+    "pydantic-argparse>=0.10.0",
+    "sentence-transformers>=5.1.1",
+    "pydantic-settings>=2.11.0",
+    "playwright>=1.55.0",
+    "mmcv==2.1.0",
+    "mmdet==3.3.0",
+    "tensorboard>=2.20.0",
+    "seqeval>=1.2.2",
+    "textdistance>=4.0.0",
+    "due-evaluator",
+    "python-barcode>=0.16.1",
+    "diffusers>=0.35.2",
+    "icecream>=2.1.8",
+    "editdistance>=0.8.1",
+    "selenium>=4.36.0",
+    "accelerate>=1.11.0",
+    "seaborn>=0.13.2",
+    "timm>=1.0.20",
+    "pytorch-fid>=0.3.0",
+]
+
+[[tool.uv.index]]
+name = "pytorch-cu121"
+url = "https://download.pytorch.org/whl/cu121"
+explicit = true
+
+[tool.uv.sources]
+torch = [
+  { index = "pytorch-cu121"},
+]
+torchvision = [
+  { index = "pytorch-cu121"},
+]
+mmcv = { url = "https://download.openmmlab.com/mmcv/dist/cu121/torch2.1.0/mmcv-2.1.0-cp311-cp311-manylinux1_x86_64.whl" }
+atria-core = { git = "https://github.com/saifullah3396/atria_core.git", branch = "devel-estella" }
+nest-asyncio = [
+  { index = "pypi" }
+]
+due-evaluator = { git = "https://github.com/due-benchmark/evaluator.git" }
+
+[dependency-groups]
+dev = [
+    "ipykernel>=6.30.1",
+    "pydrive2>=1.21.3",
+    "pytest>=8.4.2",
+]
+
+[tool.uv]
+package = true
+override-dependencies = ["atria-core"]
+
+[tool.setuptools.packages.find]
+include = ["docdjinn*"]
+
+[tool.setuptools.package-data]
+docdjinn = ["generation/debug.js"]
+
+[tool.pytest.ini_options]
+pythonpath = [".", "docdjinn", "tests"]
+# Set additional command line options for pytest
+# Ref: https://docs.pytest.org/en/stable/reference/reference.html#command-line-flags
+addopts = "-rXs --strict-config --strict-markers --tb=short"
+xfail_strict = true         # Treat tests that are marked as xfail but pass as test failures
+# filterwarnings = ["error"]  # Treat all warnings as errors

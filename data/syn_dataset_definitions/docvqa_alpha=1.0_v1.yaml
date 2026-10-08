@@ -1,0 +1,24 @@
+name: "docvqa_alpha=1.0_v1"
+task: "QA"
+dataloader_model_task_as:
+base_dataset_name: "ex_docvqa"
+documents_count: 10000 # 10.194 Documents in DocVQA train, 39,461 QA pairs
+valid_labels: 
+label_mapping: 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "business and administrative"
+  language: "English"
+  gt_type: "Multiple questions about each document, with their answers taken **verbatim** from the document."
+  gt_format: '{"<Text of question 1>": "<Answer to question 1>", "<Text of question 2>": "<Answer to question 2>", ...}'
+
+seed_selection_strategy: "v1"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1

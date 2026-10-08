@@ -1,0 +1,41 @@
+name: "kleister_alpha=1.0"
+task: "KIE"
+dataloader_model_task_as: "QA"
+base_dataset_name: "ex_klc"
+documents_count: 4000
+valid_labels:
+  - address__post_town
+  - address__postcode
+  - address__street_line
+  - charity_name
+  - charity_number
+  - income_annually_in_british_pounds
+  - report_date
+  - spending_annually_in_british_pounds
+label_mapping: 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "UK charity annual financial report"
+  language: "English"
+  gt_type: |
+    keys and their values (if applicable, provide as plaintext values from the document):
+      * "address__post_town": Post town of the address of the charitable organization.
+      * "address__postcode": Postcode of the address of the charitable organization.
+      * "address__street_line": Street line of the address of the charitable organization.
+      * "charity_name": The name of the charitable organization.
+      * "charity_number": The registered number of the charitable organization.
+      * "income_annually_in_british_pounds": The annual income in British Pounds of the charitable organization.
+      * "report_date": The reporting date of the annual document of the charitable organization.
+      * "spending_annually_in_british_pounds": The annual spending in British Pounds of the charitable organization.
+  gt_format: '{"address__post_town": "<value>", "spending_annually_in_british_pounds": "<value>", ...}'
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1

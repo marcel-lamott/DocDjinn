@@ -1,0 +1,133 @@
+name: "funsd_alpha=1.0"
+task: "KIE"
+dataloader_model_task_as:
+base_dataset_name: "funsd"
+documents_count: 300
+valid_labels: 
+  - HEADER
+  - QUESTION
+  - ANSWER
+label_mapping: 
+valid_secondary_labels:
+  - PAIR_1
+  - PAIR_2
+  - PAIR_3
+  - PAIR_4
+  - PAIR_5
+  - PAIR_6
+  - PAIR_7
+  - PAIR_8
+  - PAIR_9
+  - PAIR_10
+  - PAIR_11
+  - PAIR_12
+  - PAIR_13
+  - PAIR_14
+  - PAIR_15
+  - PAIR_16
+  - PAIR_17
+  - PAIR_18
+  - PAIR_19
+  - PAIR_20
+  - PAIR_21
+  - PAIR_22
+  - PAIR_23
+  - PAIR_24
+  - PAIR_25
+  - PAIR_26
+  - PAIR_27
+  - PAIR_28
+  - PAIR_29
+  - PAIR_30
+  - PAIR_31
+  - PAIR_32
+  - PAIR_33
+  - PAIR_34
+  - PAIR_35
+  - PAIR_36
+  - PAIR_37
+  - PAIR_38
+  - PAIR_39
+  - PAIR_40
+  - PAIR_41
+  - PAIR_42
+  - PAIR_43
+  - PAIR_44
+  - PAIR_45
+  - PAIR_46
+  - PAIR_47
+  - PAIR_48
+  - PAIR_49
+  - PAIR_50
+  - PAIR_51
+  - PAIR_52
+  - PAIR_53
+  - PAIR_54
+  - PAIR_55
+  - PAIR_56
+  - PAIR_57
+  - PAIR_58
+  - PAIR_59
+  - PAIR_60
+  - PAIR_61
+  - PAIR_62
+  - PAIR_63
+  - PAIR_64
+  - PAIR_65
+  - PAIR_66
+  - PAIR_67
+  - PAIR_68
+  - PAIR_69
+  - PAIR_70
+  - PAIR_71
+  - PAIR_72
+  - PAIR_73
+  - PAIR_74
+  - PAIR_75
+  - PAIR_76
+  - PAIR_77
+  - PAIR_78
+  - PAIR_79
+  - PAIR_80
+  - PAIR_81
+  - PAIR_82
+  - PAIR_83
+  - PAIR_84
+  - PAIR_85
+  - PAIR_86
+  - PAIR_87
+  - PAIR_88
+  - PAIR_89
+  - PAIR_90
+  - PAIR_91
+  - PAIR_92
+  - PAIR_93
+  - PAIR_94
+  - PAIR_95
+  - PAIR_96
+  - PAIR_97
+  - PAIR_98
+  - PAIR_99
+  - PAIR_100
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "annotation"
+prompt_params:
+  num_solutions: 3
+  doc_type: "form"
+  language: "English"
+  gt_type: |
+    keys and their values structured as QA pairs
+      * "HEADER": The header of the question answer pair.
+      * "QUESTION": The question i.e. a key.
+      * "ANSWER": The answer i.e a value.
+  gt_format: |
+    Group individual annotations in groups using the enumerator class PAIR_<idx> and a annotation class from the list above (e.g. "PAIR_1 QUESTION", "PAIR_1 ANSWER", "PAIR_2 HEADER", ...).
+    Ensure to annotate exact using spans, i.e. "QUESTION" element should not contain "ANSWER".
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1

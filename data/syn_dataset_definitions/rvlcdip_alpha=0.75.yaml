@@ -1,0 +1,57 @@
+name: "rvlcdip_alpha=0.75"
+task: "CLASSIFICATION"
+dataloader_model_task_as:
+base_dataset_name: "rvlcdip"
+documents_count: 4500
+valid_labels: 
+  - letter
+  - form
+  - email
+  - handwritten
+  - advertisement
+  - scientific report
+  - scientific publication
+  - specification
+  - file folder
+  - news article
+  - budget
+  - invoice
+  - presentation
+  - questionnaire
+  - resume
+  - memo
+label_mapping: 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "business correspondence and corporate"
+  language: "English"
+  gt_type: |
+    document class label
+      * letter
+      * form
+      * email
+      * handwritten
+      * advertisement
+      * scientific report
+      * scientific publication
+      * specification
+      * file folder
+      * news article
+      * budget
+      * invoice
+      * presentation
+      * questionnaire
+      * resume
+      * memo
+  gt_format: 'JSON object {"label": "<class label>"}'
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 0.75
+max_seed_pool: -1

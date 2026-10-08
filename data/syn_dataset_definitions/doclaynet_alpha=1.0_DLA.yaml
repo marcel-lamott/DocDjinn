@@ -1,0 +1,49 @@
+name: "doclaynet_alpha=1.0_DLA"
+task: "DLA"
+dataloader_model_task_as:
+base_dataset_name: "doclaynet"
+documents_count: 4500
+valid_labels: 
+  - LE-CAPTION
+  - LE-FOOTNOTE
+  - LE-FORMULA
+  - LE-LIST-ITEM
+  - LE-PAGE-FOOTER
+  - LE-PAGE-HEADER
+  - LE-PICTURE
+  - LE-SECTION-HEADER
+  - LE-TABLE
+  - LE-TEXT
+  - LE-TITLE
+label_mapping: 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "annotation"
+prompt_params:
+  num_solutions: 2
+  doc_type: "single A4 pages out of diverse business and technical"
+  language: "English"
+  gt_type: |
+      * "LE-CAPTION": Text that accompanies and explains figures, tables, or other visual elements, typically appearing above or below the referenced element.
+      * "LE-FOOTNOTE": Supplementary notes or citations placed at the bottom of a page, providing additional context or references to the main text, distinct from footers.
+      * "LE-FORMULA": Mathematical equations, chemical formulas, or symbolic expressions, whether displayed inline or as standalone elements.
+      * "LE-LIST-ITEM": Individual items within enumerated, bulleted, or definition lists, with each list item annotated separately rather than as a unified list structure.
+      * "LE-PAGE-FOOTER": Recurring content at the bottom of pages such as page numbers, copyright notices, document identifiers, or footer text.
+      * "LE-PAGE-HEADER": Recurring content at the top of pages including running headers, document titles, chapter names.
+      * "LE-PICTURE": Photographs, diagrams, charts, graphs, illustrations, and other visual content excluding tables.
+      * "LE-SECTION-HEADER": Section and subsection headings.
+      * "LE-TABLE": Complete table structure including grid content, inline captions, and column/row headers as a unified element.
+      * "LE-TEXT": Contains regular body text including paragraphs, abstracts, definitions, descriptions, and other primary textual content.
+      * "LE-TITLE": The main document title appearing prominently at the beginning of the document, distinct from section headers.
+  gt_format:
+
+seed_selection_strategy: "v2"
+seed_images_count: 4
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1
+
+# Issues:
+# TODO:

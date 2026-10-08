@@ -1,0 +1,33 @@
+name: "publaynet_alpha=0.5"
+task: "DLA"
+dataloader_model_task_as:
+base_dataset_name: "publaynet"
+documents_count: 4500
+valid_labels: 
+  - LE-TEXT
+  - LE-TITLE
+  - LE-TABLE
+  - LE-FIGURE
+  - LE-LIST
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "annotation"
+prompt_params:
+  num_solutions: 2
+  doc_type: "single A4 pages out of one and two column scientific article"
+  language: "English"
+  gt_type: |
+      * "LE-TEXT": Contains regular body text including paragraphs, abstracts, authors, affiliations, keywords, footnotes, footer, references, and captions for figures and tables.
+      * "LE-TITLE": Comprises all document titles and headings, article titles as well as standalone section or subsection headings that appear on their own line rather than inline with text.
+      * "LE-TABLE": Denotes the main body content of tables, excluding captions and labels.
+      * "LE-FIGURE": Indicates the main visual content of figures and illustrations, with multi-panel figures annotated as complete units rather than individual sub-figures.
+      * "LE-LIST": Represents enumerated or bulleted list structures, with nested lists annotated as single unified objects.
+  gt_format:
+
+seed_selection_strategy: "v2"
+seed_images_count: 4
+hdbscan_min_cluster_size: 10 # Should have been 5
+embedding_type: image
+alpha: 0.5
+max_seed_pool: -1

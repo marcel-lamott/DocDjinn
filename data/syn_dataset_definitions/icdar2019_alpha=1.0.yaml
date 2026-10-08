@@ -1,0 +1,27 @@
+name: "icdar2019_alpha=1.0"
+task: "DLA"
+dataloader_model_task_as:
+base_dataset_name: "icdar2019"
+documents_count: 1600
+valid_labels: 
+  - LE-TABLE
+label_mapping: 
+  LE-TABLE: table
+valid_secondary_labels:
+  
+prompt_template: "ClaudeRefined12"
+prompt_task: "annotation"
+prompt_params:
+  num_solutions: 2
+  doc_type: "single A4 pages out of diverse modern digital-born and historical archival scanned"
+  language: "English"
+  gt_type: |
+      * "LE-TABLE": Any tabular structure containing data organized in rows and columns. Include the complete table region from border to border.
+  gt_format:
+
+seed_selection_strategy: "v2"
+seed_images_count: 4
+hdbscan_min_cluster_size: 5
+embedding_type: image
+alpha: 1
+max_seed_pool: -1

@@ -1,0 +1,235 @@
+name: "cord_alpha=0.75"
+task: "KIE"
+dataloader_model_task_as:
+base_dataset_name: "cord"
+documents_count: 1200
+valid_labels: 
+  - MENU_NM
+  - MENU_NUM
+  - MENU_UNITPRICE
+  - MENU_CNT
+  - MENU_DISCOUNTPRICE
+  - MENU_PRICE
+  - MENU_ITEMSUBTOTAL
+  - MENU_VATYN
+  - MENU_ETC
+  - MENU_SUB_NM
+  - MENU_SUB_UNITPRICE
+  - MENU_SUB_CNT
+  - MENU_SUB_PRICE
+  - MENU_SUB_ETC
+  - VOID_MENU_NM
+  - VOID_MENU_PRICE
+  - SUB_TOTAL_SUBTOTAL_PRICE
+  - SUB_TOTAL_DISCOUNT_PRICE
+  - SUB_TOTAL_SERVICE_PRICE
+  - SUB_TOTAL_OTHERSVC_PRICE
+  - SUB_TOTAL_TAX_PRICE
+  - SUB_TOTAL_ETC
+  - TOTAL_TOTAL_PRICE
+  - TOTAL_TOTAL_ETC
+  - TOTAL_CASHPRICE
+  - TOTAL_CHANGEPRICE
+  - TOTAL_CREDITCARDPRICE
+  - TOTAL_EMONEYPRICE
+  - TOTAL_MENUTYPE_CNT
+  - TOTAL_MENUQTY_CNT
+
+label_mapping: 
+  MENU_NM: MENU.NM
+  MENU_NUM: MENU.NUM
+  MENU_UNITPRICE: MENU.UNITPRICE
+  MENU_CNT: MENU.CNT
+  MENU_DISCOUNTPRICE: MENU.DISCOUNTPRICE
+  MENU_PRICE: MENU.PRICE
+  MENU_ITEMSUBTOTAL: MENU.ITEMSUBTOTAL
+  MENU_VATYN: MENU.VATYN
+  MENU_ETC: MENU.ETC
+  MENU_SUB_NM: MENU.SUB_NM
+  MENU_SUB_UNITPRICE: MENU.SUB_UNITPRICE
+  MENU_SUB_CNT: MENU.SUB_CNT
+  MENU_SUB_PRICE: MENU.SUB_PRICE
+  MENU_SUB_ETC: MENU.SUB_ETC
+  VOID_MENU_NM: VOID_MENU.NM
+  VOID_MENU_PRICE: VOID_MENU.PRICE
+  SUB_TOTAL_SUBTOTAL_PRICE: SUB_TOTAL.SUBTOTAL_PRICE
+  SUB_TOTAL_DISCOUNT_PRICE: SUB_TOTAL.DISCOUNT_PRICE
+  SUB_TOTAL_SERVICE_PRICE: SUB_TOTAL.SERVICE_PRICE
+  SUB_TOTAL_OTHERSVC_PRICE: SUB_TOTAL.OTHERSVC_PRICE
+  SUB_TOTAL_TAX_PRICE: SUB_TOTAL.TAX_PRICE
+  SUB_TOTAL_ETC: SUB_TOTAL.ETC
+  TOTAL_TOTAL_PRICE: TOTAL.TOTAL_PRICE
+  TOTAL_TOTAL_ETC: TOTAL.TOTAL_ETC
+  TOTAL_CASHPRICE: TOTAL.CASHPRICE
+  TOTAL_CHANGEPRICE: TOTAL.CHANGEPRICE
+  TOTAL_CREDITCARDPRICE: TOTAL.CREDITCARDPRICE
+  TOTAL_EMONEYPRICE: TOTAL.EMONEYPRICE
+  TOTAL_MENUTYPE_CNT: TOTAL.MENUTYPE_CNT
+  TOTAL_MENUQTY_CNT: TOTAL.MENUQTY_CNT
+
+valid_secondary_labels:
+  - MENU_1
+  - MENU_2
+  - MENU_3
+  - MENU_4
+  - MENU_5
+  - MENU_6
+  - MENU_7
+  - MENU_8
+  - MENU_9
+  - MENU_10
+  - MENU_11
+  - MENU_12
+  - MENU_13
+  - MENU_14
+  - MENU_15
+  - MENU_16
+  - MENU_17
+  - MENU_18
+  - MENU_19
+  - MENU_20
+  - MENU_21
+  - MENU_22
+  - MENU_23
+  - MENU_24
+  - MENU_25
+  - MENU_26
+  - MENU_27
+  - MENU_28
+  - MENU_29
+  - MENU_30
+  - MENU_31
+  - MENU_32
+  - MENU_33
+  - MENU_34
+  - MENU_35
+  - MENU_36
+  - MENU_37
+  - MENU_38
+  - MENU_39
+  - MENU_40
+  - MENU_41
+  - MENU_42
+  - MENU_43
+  - MENU_44
+  - MENU_45
+  - MENU_46
+  - MENU_47
+  - MENU_48
+  - MENU_49
+  - MENU_50
+  - MENU_51
+  - MENU_52
+  - MENU_53
+  - MENU_54
+  - MENU_55
+  - MENU_56
+  - MENU_57
+  - MENU_58
+  - MENU_59
+  - MENU_60
+  - MENU_61
+  - MENU_62
+  - MENU_63
+  - MENU_64
+  - MENU_65
+  - MENU_66
+  - MENU_67
+  - MENU_68
+  - MENU_69
+  - MENU_70
+  - MENU_71
+  - MENU_72
+  - MENU_73
+  - MENU_74
+  - MENU_75
+  - MENU_76
+  - MENU_77
+  - MENU_78
+  - MENU_79
+  - MENU_80
+  - MENU_81
+  - MENU_82
+  - MENU_83
+  - MENU_84
+  - MENU_85
+  - MENU_86
+  - MENU_87
+  - MENU_88
+  - MENU_89
+  - MENU_90
+  - MENU_91
+  - MENU_92
+  - MENU_93
+  - MENU_94
+  - MENU_95
+  - MENU_96
+  - MENU_97
+  - MENU_98
+  - MENU_99
+  - MENU_100
+  - VOID_MENU
+  - VOID_MENU_1 # the LLM shouldn't do this but does
+  - VOID_MENU_2
+  - VOID_MENU_3
+  - VOID_MENU_4
+  - VOID_MENU_5
+  - VOID_MENU_6
+  - VOID_MENU_7
+  - VOID_MENU_8
+  - VOID_MENU_9
+  - VOID_MENU_10
+  - GENERIC
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "annotation"
+prompt_params:
+  num_solutions: 3
+  doc_type: "receipt"
+  language: "English"
+  gt_type: |
+    (if applicable, provide as plaintext values from the document)
+      // Menu items (multiple menu items are allowed)
+      * "MENU_NM": The menu item name.
+      * "MENU_NUM": The menu item number or identifier.
+      * "MENU_UNITPRICE": The price per unit of the menu item.
+      * "MENU_CNT": The quantity or count of the menu item.
+      * "MENU_DISCOUNTPRICE": The discount amount applied to the menu item.
+      * "MENU_PRICE": The final price of the menu item.
+      * "MENU_ITEMSUBTOTAL": The subtotal for this menu item line.
+      * "MENU_VATYN": The VAT indicator (yes/no) for the menu item.
+      * "MENU_ETC": Other miscellaneous menu item information.
+      * "MENU_SUB_NM": The name of a sub-item or modifier.
+      * "MENU_SUB_UNITPRICE": The price per unit of the sub-item.
+      * "MENU_SUB_CNT": The quantity of the sub-item.
+      * "MENU_SUB_PRICE": The price of the sub-item.
+      * "MENU_SUB_ETC": Other sub-item information.
+      // Menu items that were canceled
+      * "VOID_MENU_NM": The name of a cancelled or voided item.
+      * "VOID_MENU_PRICE": The price of the cancelled item.
+      // Generic receipt data
+      * "SUB_TOTAL_SUBTOTAL_PRICE": The subtotal before additional charges.
+      * "SUB_TOTAL_DISCOUNT_PRICE": The total discount amount.
+      * "SUB_TOTAL_SERVICE_PRICE": The service charge or fee.
+      * "SUB_TOTAL_OTHERSVC_PRICE": Other service charges.
+      * "SUB_TOTAL_TAX_PRICE": The tax amount.
+      * "SUB_TOTAL_ETC": Other subtotal information.
+      * "TOTAL_TOTAL_PRICE": The final total amount on the receipt.
+      * "TOTAL_TOTAL_ETC": Other total-related information.
+      * "TOTAL_CASHPRICE": The amount paid in cash.
+      * "TOTAL_CHANGEPRICE": The change given back to the customer.
+      * "TOTAL_CREDITCARDPRICE": The amount paid by credit card.
+      * "TOTAL_EMONEYPRICE": The amount paid by electronic money or digital payment.
+      * "TOTAL_MENUTYPE_CNT": The count of different menu item types.
+      * "TOTAL_MENUQTY_CNT": The total quantity of all items ordered.
+  gt_format: |
+    Group individual menu items in groups using the menu item enumerator class MENU_<idx> and a sub-field class from the list above (e.g. "MENU_1 MENU_NM", "MENU_1 MENU_CNT", "MENU_2 MENU_NM", ...).
+    For void/canceled menu items use the class "VOID_MENU" instead of the enumeration.
+    For generic receipt data use the class "GENERIC".
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 0.75
+max_seed_pool: -1

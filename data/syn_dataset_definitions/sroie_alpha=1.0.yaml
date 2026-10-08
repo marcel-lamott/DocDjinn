@@ -1,0 +1,37 @@
+name: "sroie_alpha=1.0"
+task: "KIE"
+dataloader_model_task_as:
+base_dataset_name: "sroie"
+documents_count: 1000
+valid_labels: 
+  - COMPANY
+  - DATE
+  - ADDRESS
+  - TOTAL
+label_mapping: 
+valid_secondary_labels:
+  
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "receipt"
+  language: "English"
+  gt_type: |
+    keys and their values
+      * "COMPANY": The company name.
+      * "DATE": The date on the receipt.
+      * "ADDRESS": The address of the company.
+      * "TOTAL": The total amount.
+  gt_format: '{"COMPANY": "<value>", "DATE": "<value>", "ADDRESS": "<value>", "TOTAL": "<value>"}'
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1
+
+# ICVPR: 22.10.2025 | 11.21 USD
+# ICVPR: 23.10.2025 | 38.61 USD
+#   1950 samples @ 27.4 USD => 1.4 ct/doc

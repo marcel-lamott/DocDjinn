@@ -1,0 +1,63 @@
+SEED_IMAGE_MAX_WIDTH: int = 500
+SEED_IMAGE_QUALITY: int = 80
+
+PIPELINE_01_RETRIEVE_DOCUMENT_HTML__PROMPT_BATCH_MAX_SIZE = 50
+PIPELINE_01_RETRIEVE_DOCUMENT_HTML__PROMPT_BATCH_POLL_SLEEP_SECONDS_BETWEEN_BATCH = 5
+PIPELINE_01_RETRIEVE_DOCUMENT_HTML__PROMPT_BATCH_POLL_SLEEP_SECONDS_BETWEEN_ITERATION = 5
+PIPELINE_06_GT_VERIFICATION__GT_SIMILARITY_CUTOFF = 0.75
+
+PIPELINE_03_RENDER_PDF__MAX_WORKERS = 8
+PIPELINE_03_RENDER_PDF__CHROMIUM_CONCURRENCY = 10
+PIPELINE_03_RENDER_PDF__PER_PDF_RENDER_TIMEOUT = 30
+PIPELINE_03_RENDER_PDF__PER_PDF_RENDER_MAX_RETRIES = 2
+
+BS_PARSER = "lxml"  # "html.parser"
+
+PIPELINE_06_EXTRACT_HANDWRITING__MAX_WORD_LEN = -1
+PIPELINE_04_3_SCALE_UP_FACTOR = 3
+
+# bboxes read from pdf (and probably also those retrieved via OCR) dont fit exactly into the geo extracted via javascript
+BBOX_TO_GEO_MATCHING_THRESHOLD = 25
+
+IMAGE_RENDER_EXT = "png"
+
+HANDWRITING_DEFAULT_BATCH_SIZE = 256
+HANDWRITING_CLASS_NAME = "handwritten"
+SIGNATURE_CLASS_NAME = "signature"
+HANDWRITING_FONT_SIZE = "26"
+
+FIXED_HANDWRITING_X_OFFSET = (
+    2  # place all handwritten text 2px to the right to look better
+)
+MAX_HANDWRITING_RAND_X_OFFSET_LEFT = 1
+MAX_HANDWRITING_RAND_X_OFFSET_RIGHT = 2
+MAX_HANDWRITING_RAND_Y_OFFSET_UP = 1
+MAX_HANDWRITING_RAND_Y_OFFSET_DOWN = 2
+MAX_HANDWRITING_RAND_DEG_ROT = 1
+
+PDF_DPI = 200
+
+WRITER_STYLES = [
+    404,
+    347,
+    156,
+    253,
+    354,
+    603,
+    166,
+    320,
+    188,
+]
+
+# VISUAL_ELEMENT_TYPES = ["stamp", "logo", "barcode", "photo", "chart"]
+VISUAL_ELEMENT_TYPES = ["stamp", "logo", "figure", "barcode", "photo"]
+VISUAL_ELEMENT_TYPE_SYNONYMS = {
+    "chart": "figure",
+    "diagram": "figure",
+    "plot": "figure",
+    "graph": "figure",
+    "illustration": "figure",
+    "infographic": "figure",
+    "image": "photo",
+    "seal": "stamp",
+}

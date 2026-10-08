@@ -1,0 +1,40 @@
+name: "doclaynet4k_alpha=1.0_CLS"
+task: "CLASSIFICATION"
+dataloader_model_task_as:
+base_dataset_name: "doclaynet_4k_cls"
+documents_count: 4500
+valid_labels: 
+  - financial_reports
+  - scientific_articles
+  - laws_and_regulations
+  - government_tenders
+  - manuals
+  - patents
+label_mapping: 
+valid_secondary_labels:
+
+prompt_template: "ClaudeRefined12"
+prompt_task: "json"
+prompt_params:
+  num_solutions: 3
+  doc_type: "single A4 pages out of diverse business and technical"
+  language: "English"
+  gt_type: |
+    document class label
+      * financial_reports
+      * scientific_articles
+      * laws_and_regulations
+      * government_tenders
+      * manuals
+      * patents
+  gt_format: 'JSON object {"label": "<class label>"}'
+
+seed_selection_strategy: "v2"
+seed_images_count: 6
+hdbscan_min_cluster_size: 10
+embedding_type: combined
+alpha: 1
+max_seed_pool: -1
+
+# Issues:
+# TODO:
